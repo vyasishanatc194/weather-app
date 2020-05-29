@@ -1,0 +1,82 @@
+{
+  "name": "weather-app",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "dist/weather.umd.js",
+  "module": "dist/weather.es5.js",
+  "typings": "dist/types/weather.d.ts",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc --module commonjs"
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 85,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "@types/jest": "23.3.2",
+    "@types/node": "10.11.0",
+    "jest": "24.0.0",
+    "jest-config": "24.8.0",
+    "lint-staged": "8.0.0",
+    "lodash.camelcase": "4.3.0",
+    "prettier": "1.14.3",
+    "prompt": "1.0.0",
+    "replace-in-file": "3.4.2",
+    "rimraf": "2.6.2",
+    "ts-jest": "23.10.2",
+    "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "tslint-config-prettier": "1.15.0",
+    "tslint-config-standard": "8.0.1",
+    "typedoc": "0.14.2",
+    "typescript": "3.0.3"
+  },
+  "dependencies": {
+    "@types/cheerio": "^0.22.11",
+    "@types/request-promise": "^4.1.43",
+    "cheerio": "^1.0.0-rc.3",
+    "request-promise": "4.2.4"
+  }
+}
